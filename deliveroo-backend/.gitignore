@@ -1,0 +1,58 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env
+.venv/
+env/
+ENV/
+pip-selfcheck.json
+
+# Python environment files
+*.pyo
+*.pyd
+*.pdb
+
+# dotenv files
+.env
+.env.*
+
+# macOS junk
+.DS_Store
+
+# VSCode config
+.vscode/
+
+# Migrations
+migrations/
+instance/
+
+# Flask cache
+*.log
+*.sqlite3
+
+# Pipenv
+# Pipfile.lock
+
+# PostgreSQL data (optional if local db dumps exist)
+*.pgdata
+*.sql
+
+# Coverage & test artifacts
+.coverage
+htmlcov/
+pytest_cache/
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# Unit test logs
+tests/__pycache__/
