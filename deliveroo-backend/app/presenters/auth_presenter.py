@@ -9,14 +9,14 @@ def register_user(data: dict):
     Register a new user.
     """
     from app.models.user import User
-    name = data.get("username")
+    name = data.get("name")
     email = data.get("email")
     password = data.get("password")
 
     if not name or not email or not password:
         return jsonify({
             "status": "error",
-            "message": "All fields (username, email, password) are required."
+            "message": "All fields (name, email, password) are required."
         }), 400
 
     try:

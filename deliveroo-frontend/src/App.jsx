@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProfile } from "./features/auth/authSlice";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import Dashboard from "./pages/Dashboard";
@@ -11,6 +12,15 @@ function ProtectedRoute({ children }) {
 }
 
 export default function App() {
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.token);
+
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchProfile()); // Load user info on app start
+    }
+  }, [token, dispatch]);
+
   return (
     <Routes>
       {/* Public Routes */}
@@ -19,7 +29,7 @@ export default function App() {
 
       {/* Protected Routes */}
       <Route
-        path="/"
+        path="dashboard"
         element={
           <ProtectedRoute>
             <Dashboard />
@@ -29,3 +39,4 @@ export default function App() {
     </Routes>
   );
 }
+

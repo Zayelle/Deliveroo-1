@@ -12,7 +12,7 @@ def create_app(config_class=Config):
     db.init_app(app)
     migrate.init_app(app, db)
     jwt.init_app(app)
-    CORS(app, origins=[ "http://localhost:8080"], supports_credentials=True)
+    CORS(app, origins=[ "http://localhost:5173"], supports_credentials=True)
 
     # Health & Debug Routes
     @app.route("/", methods=["GET"])
